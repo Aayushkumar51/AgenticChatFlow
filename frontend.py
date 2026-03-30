@@ -1,6 +1,7 @@
 # if you dont use pipenv uncomment the following:
 from dotenv import load_dotenv
 load_dotenv()
+import os
 
 
 #Step1: Setup UI with streamlit (model provider, model, system prompt, web_search, query)
@@ -26,7 +27,7 @@ allow_web_search=st.checkbox("Allow Web Search")
 
 user_query=st.text_area("Enter your query: ", height=150, placeholder="Ask Anything!")
 
-API_URL="API_URL"
+API_URL=os.getenv("API_URL")
 
 if st.button("Ask Agent!"):
     if user_query.strip():
